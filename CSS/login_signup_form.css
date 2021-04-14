@@ -1,0 +1,154 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+#total-page{
+	width: 100vw;
+	height:100vh;
+	background-position: center;
+	background-size: cover;
+	background-color: rgba(153, 234, 255,0.5);
+	background-image: linear-gradient(to right,rgba(153, 234, 255,0.4),rgba(153, 234, 255,0.4)),url("../Images/background.jpg");
+	position: absolute;
+}
+#form{
+	position: relative;
+	width: 30%;
+	height: 65%;
+	background-color: rgba(179, 221, 255,0.5);
+	margin: auto auto;
+	top: 15%;
+	overflow: hidden;
+
+}
+#coloring-dummy{
+	position: absolute;
+	width: 26%;
+	height: 2em;
+	border-radius: 20px;
+	background:linear-gradient(to left, #c6edf7, #0acdff);
+	top: 25px;
+	left: 103px;
+	transition: 0.5s;
+}
+#btn-box{
+	width:50%;
+	height: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	box-shadow: 0 0 5px 5px #b6e1fc;
+	top: 25px;
+	margin: 0 auto 50px auto;
+	border-radius: 20px;
+}
+.btn{
+	height: 2em;
+	width: 48%;
+	outline:none;
+	background : transparent;
+	border: none;
+	cursor: pointer;
+	transition: 0.5s;
+
+}
+.form-box{
+	position: absolute;
+	transition: 0.5s;
+}
+#signup{
+	left: 420px;
+	top: 18%;
+}
+input{
+	display: inline;
+	border: 0;
+	/*border-bottom: 1px solid black;*/
+	outline: none;
+	height: 1.5em;
+	background: transparent;
+}
+.wrapper{
+	margin: 15px auto 30px auto;
+	display: block;
+	border: 1px solid black;
+	padding: 2px;
+	background-color: white;
+	width: 220px;
+}
+#login{
+	left: 95px;
+	height: 45%;
+	top: 24%;
+
+}
+#login > form > input{
+	margin: 30px auto;
+}
+
+#signup > form > input{
+	margin: 20px auto;
+}
+#btn-1{
+	border:0;
+	width: 80%;
+	height: 2em;
+	cursor: pointer;
+	background:linear-gradient(to left, #c6edf7, #0acdff);
+	border-radius: 1em;
+}
+#btn-2{
+	border:0;
+	width: 80%;
+	height: 2em;
+	cursor: pointer;
+	background:linear-gradient(to left, #c6edf7, #0acdff);
+	border-radius: 1em;
+}
+.wrapper2{
+	display: block;
+	border: 1px solid black;
+	padding: 2px;
+	background-color: white;
+	margin-top: 19px;
+	height: 1em;
+	width: 220px;
+}
+i{
+	margin-right: 2px;
+	padding-right:1px;
+}
+
+#eye1{
+	display: none;
+	cursor: pointer;
+}
+#eye2{
+	cursor: pointer;
+}
+
+#eye3{
+	display: none;
+	cursor: pointer;
+}
+#eye4{
+	cursor: pointer;
+}
+
+#eye5{
+	display: none;
+	cursor: pointer;
+}
+#eye6{
+	cursor: pointer;
+}
+#btn-1:hover{
+	box-shadow: 0 0 10px 7px #e8dfe8;
+	border: 1px solid #ad91ff;
+}
+#btn-2:hover{
+	box-shadow: 0 0 10px 7px #b6e1fc;
+	border: 1px solid #ad91ff;
+}
