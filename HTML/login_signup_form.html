@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../CSS/login_signup_form.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../CSS/style.css"> -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
 </head>
@@ -17,12 +18,12 @@
 				<button class="btn" onclick="signup()">Sign Up</button>
 			</div>
 			<div class="form-box" id="login">
-				<form>
+				<form onsubmit="submit()" id="login-form">
 					<div class="wrapper">
 						<i class="fas fa-user"></i>
 						<input type="text" name="user" placeholder="Enter username or email" title="Enter your username or email" required>
 					</div>
-					<div class="wrapper">
+					<div class="wrapper" style="margin-bottom: 15px;">
 						<i class="fas fa-key"></i>
 						<input type="password" name="passwrd" id="pswd1" placeholder="Password" title="Enter your password" required>
 						<span onclick="span1()">
@@ -30,39 +31,42 @@
 							<i id="eye2" class="fas fa-eye-slash"></i>
 						</span>
 					</div>
+					<div>
+						<span id="forgot-pass"><a href="forgot-pass.jsp">forgot password</a></span>
+					</div>
 					
-					<input type="submit" name="login" id="btn-1"value="Login" style="display: block;">
+					<input type="submit" name="login" id="btn-1" value="Login" style="display: block; clear: both;">
 
 				</form>
 			</div>
 			<div class="form-box" id="signup">
-				<form>
+				<form id="signup-form">
 					<div class="wrapper2" style="margin-top: 3px;">
 						<i class="fas fa-user"></i>
-						<input type="text" name="first-name" placeholder="First name" title="Enter your first name" required>
+						<input type="text" name="first-name" placeholder="First name" title="Enter your first name" required disabled="true">
 					</div>
 					
 
 					<div class="wrapper2">
 						<i class="fas fa-user"></i>
-						<input type="text" name="last-name" placeholder="Last name" title="Enter your last name" required>
+						<input type="text" name="last-name" placeholder="Last name" title="Enter your last name" required disabled="true">
 					</div>
 
 					<div class="wrapper2">
 						<i class="fas fa-user"></i>
-						<input type="text" name="username" placeholder="Username" title="Username should be unique" required>
+						<input type="text" name="username" placeholder="Username" title="Username should be unique" required disabled="true">
 					</div>
 					
 
 					<div class="wrapper2">
 						<i class="fas fa-envelope"></i>
-						<input type="email" name="email" placeholder="Email" title="Enter your email address" required>
+						<input type="email" name="email" placeholder="Email" title="Enter your email address" required disabled="true">
 					</div>
 					
 
 					<div class="wrapper2">
 						<i class="fas fa-key"></i>
-						<input type="password" name="passwrd" id="pswd2" placeholder="Password" title="Enter your password" required>
+						<input type="password" name="passwrd" id="pswd2" placeholder="Password" title="Enter your password" required disabled="true">
 						<span onclick="span2()">
 							<i id="eye3" class="fas fa-eye"></i>
 							<i id="eye4" class="fas fa-eye-slash"></i>
@@ -71,14 +75,14 @@
 					
 					<div class="wrapper2">
 						<i class="fas fa-key"></i>
-						<input type="password" name="re-passwrd" id="pswd3" placeholder="Re-enter password" title="Re-enter your password" required>
+						<input type="password" name="re-passwrd" id="pswd3" placeholder="Re-enter password" title="Re-enter your password" required disabled="true">
 						<span onclick="span3()">
 							<i id="eye5" class="fas fa-eye"></i>
 							<i id="eye6" class="fas fa-eye-slash"></i>
 						</span>
 					</div>				
 
-					<input type="submit" name="login" id="btn-2" value="Sign Up" style="display: block;">
+					<input type="submit" name="login" id="btn-2" value="Sign Up" style="display: block;" disabled="true">
 				</form>
 			</div>
 		</div>
@@ -88,14 +92,33 @@
 		var form2 = document.getElementById('signup');
 		var sel = document.getElementById('coloring-dummy');
 		function login(){
-			form1.style.left = "95px";
+			form1.style.left = "81px";
 			form2.style.left = "450px";
-			sel.style.left="103px";
+			sel.style.left="103px";	
+			var form1_eles = document.getElementById('login-form').elements;
+			for(var i=0;i<form1_eles.length;i++){
+				form1_eles[i].disabled = false;
+			}
+			// document.getElementById('forgot-pass').style.display = "inline";
+			var form2_eles = document.getElementById('signup-form').elements;
+			for(var i=0;i<form2_eles.length;i++){
+				form2_eles[i].disabled = true;
+			}
 		}
 		function signup(){
-			form1.style.left = "-250px";
+			form1.style.left = "-300px";
 			form2.style.left = "90px";
 			sel.style.left="203px";
+			var form1_eles = document.getElementById('login-form').elements;
+			for(var i=0;i<form1_eles.length;i++){
+				form1_eles[i].disabled = true;
+			}
+			var form2_eles = document.getElementById('signup-form').elements;
+			for(var i=0;i<form2_eles.length;i++){
+				form2_eles[i].disabled = false;
+			}
+			// document.getElementById('forgot-pass').style.display = "none";
+
 		}
 		function span1(){
 			var x = document.getElementById('pswd1');
@@ -141,6 +164,11 @@
 				y.style.display = "none";
 				z.style.display = "inline";
 			}
+		}
+		function submit(){
+			alert("submit");
+			var btn = document.getElementById('btn-1');
+			btn.disabled = true;
 		}
 	</script>
 </body>
