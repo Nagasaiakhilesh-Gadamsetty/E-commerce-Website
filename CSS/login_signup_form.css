@@ -10,37 +10,13 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-/*body{
-	width: 100%;
-	height:100%;
-	background-position: center;
-	background-size: cover;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-	background-color: rgba(153, 234, 255,0.5);
-	background-image: linear-gradient(to right,rgba(153, 234, 255,0.4),rgba(153, 234, 255,0.4)),url("../Images/background.jpg");
-	position: absolute;
-}*/
-/*#total-page{
-	width: 100%;
-	height:100%;
-	background-position: center;
-	background-size: cover;
-	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-	background-color: rgba(153, 234, 255,0.5);
-	background-image: linear-gradient(to right,rgba(153, 234, 255,0.4),rgba(153, 234, 255,0.4)),url("../Images/background.jpg");
-	position: absolute;
-}*/
 #form{
 	top: 15%;
 	position: relative;
 	min-width: 400px;
-	min-height: 450px;
+	min-height: 465px;
 	max-width: 400px;
-	max-height: 450px;
+	max-height: 465px;
 	background-color: rgba(179, 221, 255,0.5);
 	margin: auto auto;
 	margin-top: 15%;
@@ -57,7 +33,7 @@ html {
 	background:linear-gradient(to left, #c6edf7, #0acdff);
 	top: 25px;
 	left: 103px;
-	transition: 0.5s;
+	transition: 0.75s;
 }
 #btn-box{
 	width:50%;
@@ -78,12 +54,12 @@ html {
 	background : transparent;
 	border: none;
 	cursor: pointer;
-	transition: 0.5s;
+	transition: 0.75s;
 
 }
 .form-box{
 	position: absolute;
-	transition: 0.5s;
+	transition: 0.75s;
 }
 #signup{
 	left: 450px;
@@ -96,6 +72,13 @@ input{
 	outline: none;
 	height: 20px;
 	background: transparent;
+	
+}
+.wrapper input{
+	min-width: 80%;
+}
+.wrapper2 input{
+	min-width: 80%;
 }
 .wrapper{
 	margin: 15px auto 30px auto;
@@ -120,14 +103,14 @@ input{
 	margin-bottom: 18px;
 	font-size: 12px;
 }
-#forgot-pass a{
+a{
 	text-decoration: none;
 	color: rgb(0, 145, 255);
 }
-#forgot-pass a:visited{
+a:visited{
 	color: rgb(0, 145, 255);
 }
-#forgot-pass a:hover{
+a:hover{
 	color: rgb(0,0,255);
 }
 
@@ -151,12 +134,15 @@ input{
 	border-radius: 16px;
 }
 .wrapper2{
+	position: relative;
 	display: block;
 	border: 1px solid black;
 	padding: 2px;
 	background-color: white;
-	margin-top: 19px;
-	width: 220px;
+	margin-top: 20px;
+	width: 240px;
+	left: -10px;
+	/*box-sizing: border-box;*/
 }
 i{
 	margin-right: 2px;
@@ -164,33 +150,58 @@ i{
 }
 
 #eye1{
+	margin-top: 1px;
+	margin-right: 2.8px;
 	display: none;
 	cursor: pointer;
 	float: right;
 }
 #eye2{
+	margin-top: 1px;
 	cursor: pointer;
 	float: right;
 }
 
 #eye3{
+	margin-top: 1px;
+	margin-right: 2.8px;
 	display: none;
 	cursor: pointer;
 	float: right;
 }
 #eye4{
+	margin-top: 1px;
 	cursor: pointer;
 	float: right;
 }
 
 #eye5{
+	margin-top: 1px;
+	margin-right: 2.8px;
 	display: none;
 	cursor: pointer;
 	float: right;
 }
 #eye6{
+	margin-top: 1px;
 	cursor: pointer;
 	float: right;
+}
+.error{
+	position: absolute;
+	font-size: 0.8em;
+	color: red;
+	visibility: hidden;
+	margin-top: 2px;
+}
+#error{
+	font-size: 0.8em;
+	position: relative;
+	left : -12px;
+	color: red;
+	visibility: hidden;
+	max-width: 100%;
+	text-align: center;
 }
 #btn-1:hover{
 	box-shadow: 0 0 10px 7px #e8dfe8;
@@ -204,14 +215,14 @@ i{
 	#form{
 		width: 100%;
 		left:-10%;
-		margin-top: 20px;
+		margin-top: 0px;
 	}
 	
 
 }
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 500px){
 	#form{
-		margin-top:5%;
+		margin-top:5vh;
 	}
 	
 

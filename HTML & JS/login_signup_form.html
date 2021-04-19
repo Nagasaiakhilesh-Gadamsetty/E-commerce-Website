@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/SignUp form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../CSS/login_signup_form.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../CSS/style.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<div id="total-page">
+		<div id="form">
+			<div id="coloring-dummy"></div>
+			<div id="btn-box">
+				<button class="btn" onclick="login()">Log In</button>
+				<button class="btn" onclick="signup()">Sign Up</button>
+			</div>
+			<div class="form-box" id="login">
+				<form  id="login-form">
+					<div class="wrapper">
+						<i class="fas fa-user"></i>
+						<input type="text" name="user" placeholder="Enter username or email" title="Enter your username or email" required>
+					</div>
+					<div class="wrapper" style="margin-bottom: 15px;">
+						<i class="fas fa-key"></i>
+						<input type="password" name="passwrd" id="pswd1" placeholder="Password" title="Enter your password" required>
+						<span onclick="span1()">
+							<i id="eye1" class="fas fa-eye"></i>
+							<i id="eye2" class="fas fa-eye-slash"></i>
+						</span>
+					</div>
+					<div>
+						<span id="forgot-pass"><a href="forgot-pass.jsp">forgot password</a></span>
+					</div>
+					
+					<input type="submit" name="login" id="btn-1" value="Login" style="display: block; clear: both;">
+
+				</form>
+			</div>
+
+
+
+
+			<div class="form-box" id="signup">
+				<form id="signup-form">
+					<div class="wrapper2" style="margin-top: 3px;" id="first-name-cover">
+						<i class="fas fa-user"></i>
+						<input type="text" id="first-name" name="first-name" placeholder="First name" title="Enter your first name" required disabled="true">
+					</div>
+
+					<div>
+						<span id="err1" class="error" style="left: -20px;">First name should be atleast 4 characters long</span>
+					</div>
+					
+
+					<div class="wrapper2" id="last-name-cover">
+						<i class="fas fa-user"></i>
+						<input type="text" id="last-name" name="last-name" placeholder="Last name" title="Enter your last name" required disabled="true">
+					</div>
+
+					<div>
+						<span id="err2" class="error" style="left: -20px;">Last name should be atleast 4 characters long</span>
+					</div>
+
+					<div class="wrapper2" id="user-name-cover">
+						<i class="fas fa-user"></i>
+						<input type="text" id="user-name" name="username" placeholder="Username" title="Username should be unique" required disabled="true">
+					</div>
+					
+					<div>
+						<span id="err3" class="error" style="left: -20px;">User name should be atleast 6 characters long</span>
+					</div>
+
+					<div class="wrapper2">
+						<i class="fas fa-envelope"></i>
+						<input type="email" id="email" name="email" placeholder="Email" title="Enter your email address" required disabled="true">
+					</div>
+					
+
+					<div class="wrapper2" id="pswd-cover">
+						<i class="fas fa-key"></i>
+						<input type="password" name="passwrd" id="pswd2" placeholder="Password" title="Enter your password" required disabled="true">
+						<span onclick="span2()">
+							<i id="eye3" class="fas fa-eye"></i>
+							<i id="eye4" class="fas fa-eye-slash"></i>
+						</span>
+					</div>
+
+					<div>
+						<span id="err4" class="error" style="left: -12px;">Password must be atleast 8 characters long</span>
+					</div>
+					
+					<div class="wrapper2" id="repswd-cover">
+						<i class="fas fa-key"></i>
+						<input type="password" name="re-passwrd" id="pswd3" placeholder="Re-enter password" title="Re-enter your password" required disabled="true">
+						<span onclick="span3()">
+							<i id="eye5" class="fas fa-eye"></i>
+							<i id="eye6" class="fas fa-eye-slash"></i>
+						</span>
+					</div>	
+
+					<div>
+						<span id="err5" class="error" style="left: 15px;">Passwords do not match</span>
+					</div>
+
+					<div style="margin-top: 15px; position: relative; left: -10px; width: 250px;">
+						<input type="checkbox" id="cb" style="position: relative; top:4px;">
+						<span style="font-size: 0.9em;"><a href="t-c.html">I agree to the terms and conditions</a></span>
+					</div>	
+					<div>
+						<span id="error">Error</span>
+					</div>		
+
+					<input type="submit" name="login" id="btn-2" value="Sign Up" style="display: block;margin-top: 5px; margin-left: 14px;" disabled="true">
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="login_signup_form.js">
+	</script>
+</body>
+</html>
