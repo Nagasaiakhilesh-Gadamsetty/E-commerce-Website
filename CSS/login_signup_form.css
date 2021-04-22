@@ -11,7 +11,7 @@ html {
   background-size: cover;
 }
 #form{
-	top: 15%;
+	top: 30px;
 	position: relative;
 	min-width: 400px;
 	min-height: 465px;

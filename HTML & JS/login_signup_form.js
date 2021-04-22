@@ -9,6 +9,27 @@ var first = document.getElementById('first-name');
 var last = document.getElementById('last-name');
 var user_name = document.getElementById('user-name');
 
+function encrypt(password){
+	var left_part="",right_part="";
+	var enc_pass;
+	if(password.length%2 == 0){
+		for(var i=0;i<password.length/2;i++){
+			var ind_ele_from_end = password.length - i - 1;
+			left_part += password[ind_ele_from_end];
+			right_part = password[i] + right_part;
+		}
+		enc_pass = left_part + right_part;
+	}
+	else{
+		for(var i=0;i<password.length/2 - 1;i++){
+			var ind_ele_from_end = password.length - i - 1;
+			left_part += password[ind_ele_from_end];
+			right_part = password[i] + right_part;
+		}
+		enc_pass = left_part + password[Math.floor(password.length/2)] + right_part;
+	}
+	return enc_pass;
+}
 
 first.addEventListener('blur',blur_first);
 function blur_first(){
