@@ -8,6 +8,9 @@ var re_pass = document.getElementById('pswd3');
 var first = document.getElementById('first-name');
 var last = document.getElementById('last-name');
 var user_name = document.getElementById('user-name');
+var email = document.getElementById('email');
+
+
 
 function encrypt(password){
 	var left_part="",right_part="";
@@ -65,15 +68,65 @@ user_name.addEventListener('blur',blur_user);
 function blur_user(){
 	var user = document.getElementById('user-name');
 	var err = document.getElementById('err3');
+	var err1 = document.getElementById('err31');
 	var cover = document.getElementById('user-name-cover');
+	var good = document.getElementById('avail');
 	if(user.value.length < 6){
+		good.style.visibility = "hidden";
+		err1.style.visibility = "hidden";
 		err.style.visibility = "visible";
 		cover.style.border = "2px solid red";
 	}
 	else{
-		err.style.visibility = "hidden";
-		cover.style.border = "2px solid lightgreen";
+		var xhttp = new XMLHttpRequest();
+			xhttp.open("GET","user_check.jsp?user_name="+user.value,true);
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200){
+					var strarr = xhttp.responseText.split("||");
+					if(strarr[0].trim() == 'true'){
+						//alert('intrue')
+						good.style.visibility = "visible";
+						err.style.visibility = "hidden";
+						err1.style.visibility = "hidden";
+						cover.style.border = "2px solid lightgreen";
+					}
+					else{
+						//alert('infalse')
+						good.style.visibility = "hidden";
+						err.style.visibility = "hidden";
+						err1.style.visibility = "visible";
+						cover.style.border = "2px solid red";
+					}
+				}	
+			}
+			xhttp.send();
 	}
+}
+
+email.addEventListener('blur',blur_email);
+function blur_email(){
+	email = document.getElementById('email');
+	var err = document.getElementById('avai1');
+	var cover = document.getElementById('email-cover');
+	var xhttp = new XMLHttpRequest();
+			xhttp.open("GET","email_check.jsp?email="+email.value,true);
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200){
+					var strarr = xhttp.responseText.split("||");
+					if(strarr[0].trim() == 'true'){
+						//alert('intrue')
+						err.style.visibility = "visible";
+						cover.style.border = "2px solid red";
+					}
+					else{
+						//alert('infalse')
+						err.style.visibility = "hidden";
+						cover.style.border = "2px solid green";
+					}
+				}	
+			}
+			xhttp.send();
+
 }
 
 password.addEventListener('blur',blur_pass);
@@ -123,7 +176,33 @@ var signup_form = document.getElementById("signup-form");
 
 login_form.addEventListener('submit',function(e){
 	event.preventDefault();
-	alert("Login");
+	var error = document.getElementById('login-error');
+	var user = document.getElementById('log-user');
+	var pswd = document.getElementById('pswd1');
+	if(pswd.length<8||user.value.length<3){
+		error.style.visibility = "visible";
+	}
+	else{
+		error.style.visibility = "hidden";
+		document.getElementById("btn-1").disabled = true;
+		var xhttp = new XMLHttpRequest();
+			xhttp.open("GET","login.jsp?user="+user.value+"&password="+pswd.value,true);
+			// 3rd parameter is optional by default it's set to true
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200){
+					var b = xhttp.responseText;
+					if(b.trim() == 'true'){
+						document.forms[2].action = "success.html";
+						document.forms[2].submit();
+					}
+					else{
+						error.style.visibility = "visible";
+						document.getElementById("btn-1").disabled = false;
+					}
+				}	
+			}
+			xhttp.send();
+	}
 });
 signup_form.addEventListener('submit',function(e){
 	event.preventDefault();
@@ -135,7 +214,8 @@ signup_form.addEventListener('submit',function(e){
 	var first = document.getElementById('first-name');
 	var last = document.getElementById('last-name');
 	var user_name = document.getElementById('user-name');
-
+	var email = document.getElementById('email');
+	errortext.style.visibility = "hidden";
 	
 	if(first.value.length < 4){
 		first.focus();
@@ -168,8 +248,31 @@ signup_form.addEventListener('submit',function(e){
 		errortext.innerHTML = "Please agree to the terms & conditions";
 	}
 	else{
-		errortext.style.visibility = "hidden";
-		document.getElementById('btn-2').disabled = true;
+		var xhttp = new XMLHttpRequest();
+			xhttp.open("GET","signup.jsp?password="+password.value+"&firstName="+first.value+"&lastName="+last.value+"&userName="+user_name.value+"&email="+email.value,true);
+			// 3rd parameter is optional by default it's set to true
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200){
+					var strarr = xhttp.responseText.split('||');
+					if(strarr[2].trim() == 'true'){
+						errortext.style.visibility = "visible";
+						errortext.innerHTML = "Unknown Exception occured";
+					}
+					else if(strarr[1].trim() == 'true'){
+						errortext.style.visibility = "visible";
+						errortext.innerHTML = "Email is already registered";
+					}
+					else if(strarr[0].trim() == 'false'){
+						errortext.style.visibility = "visible";
+						errortext.innerHTML = "User already exists";
+					}
+					else{
+						document.forms[2].action = "success.html";
+						document.forms[2].submit();
+					}
+				}	
+			}
+			xhttp.send();
 	}
 
 

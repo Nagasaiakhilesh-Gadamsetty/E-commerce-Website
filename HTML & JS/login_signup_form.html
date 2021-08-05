@@ -4,10 +4,10 @@
 	<title>Login/SignUp form</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../CSS/login_signup_form.css">
+	<link rel="stylesheet" type="text/css" href="login_signup_form.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../CSS/style.css"> -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="total-page">
@@ -21,7 +21,7 @@
 				<form  id="login-form">
 					<div class="wrapper">
 						<i class="fas fa-user"></i>
-						<input type="text" name="user" placeholder="Enter username or email" title="Enter your username or email" required>
+						<input type="text" name="user" id='log-user'placeholder="Enter username or email" title="Enter your username or email" required>
 					</div>
 					<div class="wrapper" style="margin-bottom: 15px;">
 						<i class="fas fa-key"></i>
@@ -31,13 +31,11 @@
 							<i id="eye2" class="fas fa-eye-slash"></i>
 						</span>
 					</div>
-					<div>
-						<span id="forgot-pass"><a href="forgot-pass.jsp">forgot password</a></span>
-					</div>
 					
 					<input type="submit" name="login" id="btn-1" value="Login" style="display: block; clear: both;">
-
 				</form>
+				<span id='login-error' style="color: red;position: fixed;text-align: center;visibility: hidden;">Username and password does not match</span>
+
 			</div>
 
 
@@ -70,12 +68,17 @@
 					</div>
 					
 					<div>
-						<span id="err3" class="error" style="left: -20px;">User name should be atleast 6 characters long</span>
+						<span id="avail" class="error" style="left: -15px;visibility: hidden;color: green;">User Name Available</span>
+						<span id="err31" class="error" style="left: -15px;">User name already taken</span>
+						<span id="err3" class="error" style="left: -15px;">User name should be atleast 6 characters long</span>
 					</div>
 
-					<div class="wrapper2">
+					<div class="wrapper2" id="email-cover">
 						<i class="fas fa-envelope"></i>
 						<input type="email" id="email" name="email" placeholder="Email" title="Enter your email address" required disabled="true">
+						<div>
+						<span id="avai1" class="error" style="padding: 2px;">Email is already registered</span>
+						</div>
 					</div>
 					
 
@@ -107,13 +110,16 @@
 
 					<div style="margin-top: 15px; position: relative; left: -10px; width: 250px;">
 						<input type="checkbox" id="cb" style="position: relative; top:4px;">
-						<span style="font-size: 0.9em;"><a href="t-c.html">I agree to the terms and conditions</a></span>
+						<span style="font-size: 0.9em;"><a href="t-c.html" target="_blank">I agree to the terms and conditions</a></span>
 					</div>	
 					<div>
 						<span id="error">Error</span>
 					</div>		
 
 					<input type="submit" name="login" id="btn-2" value="Sign Up" style="display: block;margin-top: 5px; margin-left: 14px;" disabled="true">
+				</form>
+				<form style="display: hidden;">
+					
 				</form>
 			</div>
 		</div>

@@ -1,5 +1,8 @@
 <%@page import = "java.io.*" %>
 <%@page import = "java.sql.*" %>
+<%--
+http://localhost:8080/Online%20Shopping%20Website/JSP/signup.jsp?password=akhil@2001&firstName=Nagasaiakhilesh&lastName=Gadamsetty&userName=akhil1906&email=saiakhilesh.gadasetti@gmail.com
+--%>
 <%!
 	String encrypt(String s){
 		StringBuilder sb = new StringBuilder(s);
@@ -35,7 +38,7 @@
 	boolean emailRegistered = false;
 
 	try{
-		String connectionURL = "jdbc:mysql://localhost:3306/users";
+		String connectionURL = "jdbc:mysql://localhost:3307/users";
 		Connection connection = null;
 		Class.forName("com.mysql.jdbc.Driver");
 		connection = DriverManager.getConnection(connectionURL,"root","");

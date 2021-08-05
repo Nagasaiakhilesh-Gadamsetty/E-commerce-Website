@@ -4,7 +4,7 @@
 	font-family: sans-serif;
 }
 html { 
-  background: linear-gradient(to right,rgba(153, 234, 255,0.4),rgba(153, 234, 255,0.4)),url("../Images/background.jpg") no-repeat center center fixed; 
+  background: linear-gradient(to right,rgba(153, 234, 255,0.4),rgba(153, 234, 255,0.4)),url("background.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
